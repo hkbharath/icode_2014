@@ -1,0 +1,40 @@
+<pre>
+<h3>G-Integer</h3>
+Gopal recently made a small research in mathematics. Now he thinks that
+he is the king of maths in UVCE. Whenever somebody challenges Gopal, he 
+gives a number <strong>N</strong> to that person and ask him to find a 
+<strong>G-Integer</strong> for that perticular <strong>N</strong>.
+
+Now according to Gopal <strong>G-Integer</strong> is an integer <strong>I</strong>, 
+whose sum of all digits multiplied by <strong>N</strong> is equal to the same 
+integer <strong>I</strong>.
+
+For Example : 
+   	G-Integer for 2 is 18, because 2*(1+8) = 18.
+	G-Integer for 3 is 27, because 3*(2+7) = 27.
+	
+<strong>INPUT</strong>
+First line consists of <strong>T</strong>, number of testcases.
+Each testcase contains single integer <strong>N</strong>.
+
+<strong>OUTPUT</strong>
+For each testcase print the <strong>G-Integer</strong> for given <strong>N</strong>.
+If there are multiple <strong>G-Integers</strong> for a perticular <strong>N</strong>
+then print the smallest <strong>G-Integer</strong>.
+If <strong>G-Integer</strong> doesnot exist for a given number then print <strong>"NOT EXISTS"</strong>
+(quotes for clarity)
+<strong>CONSTRAINTS</strong>
+1 &lt;= T &lt;= 100
+1 &lt;= N &lt;= 100
+
+<strong>SAMPLE INPUT</strong>
+3
+1
+2
+62
+
+<strong>SAMPLE OUTPUT</strong>
+1
+18
+NOT EXISTS  
+</pre>

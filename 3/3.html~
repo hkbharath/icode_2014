@@ -1,0 +1,30 @@
+<pre>
+Gopal goes to Mantri Mall with Rs.<strong>N</strong>. In the mall a chocolate, Gopals Fav, 
+costs Rs.<strong>C</strong>. There is an intresting offer for Gopals favorite chocolate.
+If Gopal returns <strong>W</strong> wrappers of that chocolate to the shop then he gets
+1 chocolate for free. Find the maximum number of chocolates that Gopal can 
+eat with the money he has.   
+
+<strong>INPUT</strong>
+First line contains <strong>T</strong>, number of testcases
+Each Testcase contains three space separated integers <strong>N C W</strong>, representing
+the values as explained in the question above.
+
+<strong>OUTPUT</strong>
+For each testacse print the single line with solution for that testcase.
+print "INF"(without quotes) if Gopal can get infinite number of chocolates.
+
+<strong>CONSTRAINTS</strong>
+1 &lt; <strong>T</strong> &lt;= 100
+1 &lt;= <strong>N C W</strong> &lt;= 100
+
+<strong>SAMPLE INPUT</strong>
+2
+10 2 5
+5 2 1
+
+<strong>SAMPLE OUTPUT</strong>
+6
+INF
+		
+</pre>

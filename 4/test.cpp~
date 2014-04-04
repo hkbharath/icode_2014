@@ -1,0 +1,44 @@
+#include<stdio.h>
+int N[100];
+int gint(int Z);
+int main()
+{
+  int T,ret,i;
+  // printf("enter the value of n\n");
+  scanf("%d",&T);
+  for(i=0;i<T;i++)
+    {
+      scanf("%d",&N[i]);
+    }
+  for(i=0;i<T;i++)
+    {
+      ret = gint(N[i]);
+      if( ret == -1)
+	{
+	  printf("NOT EXISTS\n");
+	}
+      else
+	printf("%d\n",ret);
+    }
+}
+
+int gint(int Z)
+{ 
+  int t1,t2,i,total;
+  for(i=1;i<=100;i++)
+    {
+      t1 = i%10;
+      t2 = i/10;
+      total = Z * (t1+t2);
+      if(total == i)
+	{
+	  // printf("%d\n",i);
+	  return (i);	
+	}
+    }
+  if(i > 100)
+	{
+	  // printf("NOT EXISTS\n");
+	  return -1;
+	}
+}

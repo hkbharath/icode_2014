@@ -1,0 +1,53 @@
+<pre>
+This year Gopal is judging the Treasure Hunt event in IMPETUS 14. Gopal is not 
+happy with that because he can't do any thing until the event completes and he 
+does not enjoy being a judge to that event. Finally he thought of finding minimum 
+time required for the competition of the event.
+
+As a judge Gopal has following data,
+There are <strong>N</strong> Teams participating in the event. There are <strong>M</strong> treasures
+to be found. And contest ends when <strong>K</strong> teams successfully finds <strong>K</strong> treasures.
+(each team should find single treasures and two team cannot find the same treasure).
+
+Now Gopal rates the teams and treasures such that, the difference between 
+rating of <strong>i<sup>th</sup></strong> treasure and the rating of <strong>j<sup>th</sup></strong> team 
+gives the estimated time, in seconds, required for <strong>j<sup>th</sup></strong> 
+team to find <strong>i<sup>th</sup></strong> treasure.
+
+Now Gopal wants sleep till the competition ends. Help Gopal to find the minimum 
+time, in seconds, for which he might sleep.
+
+<strong>INPUT</strong>
+First line contains <strong>T</strong>, number of testcases.
+In each testcase,
+The first line contains three integers - <strong>N,M,K</strong> separated by a single space.
+Following <strong>N</strong> lines will contain a single integers <strong>R<sub>j</sub></strong>, denoting rating 
+of <strong>j<sup>th</sup></strong> team (in order from 1 to N). The next <strong>M</strong> lines will contain single
+integer <strong>R<sub>i</sub></strong>, denoting the ratings of <strong>j<sup>th</sup></strong> 
+treasure (in order from 1 to M).
+
+<strong>OUTPUT</strong>
+For each testcase print a single line containing the minimum time for which Gopal 
+can sleep
+
+<strong>CONSTRAINTS</strong>
+1 <= <strong>T</strong> <= 10
+1 <= <strong>N</strong> <= 100
+1 <= <strong>M</strong> <= 100
+1 <= <strong>K</strong> <= min(N,M)
+0 <= <strong>R<sub>j</sub></strong>, <strong>R<sub>i</sub></strong> <= 10<sup>9</sup>
+max(<strong>R<sub>j</sub></strong>) &lt;= min(<strong>R<sub>i</sub></strong>)
+
+<strong>SAMPLE INPUT</strong>
+1
+3 2 1
+5
+6
+10
+12
+25
+
+<strong>SAMPLE OUTPUT</strong>
+2
+
+</pre>

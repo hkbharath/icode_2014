@@ -1,0 +1,77 @@
+/**
+ *	Author : hkbharath
+ *	Problem : Not so Easy
+ *	Lang : C++
+ */	
+
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <cstring>
+#include <cmath>
+#include <cstdlib>
+#include <climits>
+#include <map>
+#include <cassert>
+#include <queue>
+
+#define FOR(a,b,c) for(int a=b;a<=c;++a)
+#define RFOR(a,b,c) for(int a=b;a>=c;--a)
+#define LOOP(a) FOR(xx,1,a)
+#define PB(a,b) a.push_back(b)
+#define MP(a,b) make_pair(a,b)
+#define MOD 1000000007
+using namespace std;
+typedef long long int64;
+typedef pair<int,int> pii;
+typedef vector<int> vi;
+
+int64 space[10];
+int64 start[10]={0,1,10,100,1000,10000,100000,1000000,10000000,100000000};
+
+void init(){
+	space[0]=0;
+	FOR(i,1,9){
+		space[i] = space[i-1]+i*9*pow(10,i-1);
+		//printf("%lld\n",space[i]);
+	}
+}
+
+int get_cat(int64 n){
+	FOR(i,1,9)
+		if(space[i]>=n)return i;
+	return 0;
+}
+
+int digit_at(int64 num,int pos){
+	if(pos==0) return num%10;
+	vi digits;
+	while(num){
+		PB(digits,num%10);
+		num/=10;
+	}
+	return digits[digits.size()-pos];
+}
+
+void solve(int tt){
+	int64 n;
+	scanf("%lld",&n);
+	int cat = get_cat(n);
+	if(!cat){
+		printf("NOT EXISTS\n");
+		return;
+	}	
+	n = n-space[cat-1];
+	int64 num = start[cat]-1+(n/cat);
+	if(n%cat)num++;
+	printf("%d\n",digit_at(num,n%cat));
+}
+
+int main(){
+	int t,it;
+	init();
+	for(scanf("%d",&t),it=1;it<=t;it++)
+		solve(it);
+}
