@@ -1,74 +1,70 @@
+/**
+ *	Author : hkbharath
+ *	Problem : tressure hunt icode
+ *	Lang : C++
+ */	
+
 #include <bits/stdc++.h>
+
+#define _ ios_base::sync_with_stdio(0);cin.tie(0);
+#define FOR(a,b,c) for(int a=b;a<=c;++a)
+#define RFOR(a,b,c) for(int a=b;a>=c;--a)
+#define LOOP(a) FOR(xx,1,a)
+#define PB(b) push_back(b)
+#define MP(a,b) make_pair(a,b)
+#define MOD 1000000007
 using namespace std;
+typedef long long int64;
+typedef pair<int,int> pii;
+typedef vector<int> vi;
 
-const int sz = 100;
+int n,m,k;
+int bpGraph[101][101];
+bool visit[101];
+int assign[101];
 
-long long team[sz];
-long long treasure[sz];
-int lt[sz];
-int N, M, K;
-bool v[sz];
-
-bool validPath(int teamId, int trId, long long timeLimit) {
-    return treasure[trId]-team[teamId] <= timeLimit;
-}
-
-bool dfs(int u, long long timeLimit) {
-    if(u == -1)
-        return true;
-    if(v[u])
-        return false;
-    v[u] = true;
-
-    for(int i = 0; i < (int)M; ++i) {
-        int id = lt[i];
-        if(validPath(u, i, timeLimit) && dfs(id, timeLimit)) {
-            lt[i] = u;
-            return true;
-        }
-    }
-    return false;
-}
-
-int matching(long long tm) {
-    memset(lt, -1, sizeof(lt));
-
-    int ret = 0;
-    for(int i = 0; i < (int)N; ++i) {
-        memset(v, 0, sizeof(v));
-        if(dfs(i, tm))
-            ret++;
-    }
-    return ret;
-}
-
-long long binarySearch(long long l = 0, long long r = 1e9) {
-    if(l == r)
-        return l;
-    long long mid = (l+r)/2;
-    int match = matching(mid);
-    return match >= K ? binarySearch(l, mid) : binarySearch(mid+1, r);
-}
-
-int main()
-{
-	int t;
-	cin>>t;
-	while(t--){
-		cin >> N >> M >> K;
-		assert(1 <= N); assert(N <= sz);
-		assert(1 <= M); assert(M <= sz);
-		assert(1 <= K); assert(K <= min(N, M));
-
-		for(int i = 0; i < (int)N; ++i) {
-		    cin >> team[i];
-		}
-		for(int i = 0; i < (int)M; ++i) {
-		    cin >> treasure[i];
-		}
-
-		cout << binarySearch() << endl;
+bool dfs(int v,int limit){
+	if(v==-1)return true;
+	if(visit[v])return false;
+	visit[v]=true;
+	FOR(u,0,m-1){
+		if(bpGraph[v][u]<=limit && dfs(assign[u],limit)){
+			assign[u]=v;
+			return true;
+		}			
 	}
-    return 0;
+	return false;
+}
+int matching(int limit){
+	memset(assign,-1,sizeof(assign));
+	int sol=0;
+	FOR(v,0,n-1){
+		memset(visit,0,sizeof(visit));
+		if(dfs(v,limit)) sol++;
+	}
+	return sol;
 }
 
+int binary_search(int l=0,int h=1e9){
+	if(l==h)return l;
+	int mid=(l+h)/2;
+	int match = matching(mid);
+	return match>=k?binary_search(l,mid):binary_search(mid+1,h);
+}
+
+void solve(int tt){
+	cin>>n>>m>>k;
+	int ratT[n+1],ratTr[m+1];
+	FOR(i,0,n-1)cin>>ratT[i];
+	FOR(i,0,m-1)cin>>ratTr[i];
+	
+	FOR(i,0,n-1)FOR(j,0,m-1)
+		bpGraph[i][j]=ratTr[j]-ratT[i];
+	cout<<binary_search()<<endl;	
+}
+
+int main(){ _
+	int t,it;
+	for(cin>>t,it=1;it<=t;it++)
+		solve(it);
+}
